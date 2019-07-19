@@ -32,3 +32,92 @@ let button2 = document.getElementsByClassName('button2');
       this.style.backgroundColor = "#ffca47";
     };
 }
+
+// show the numbers typed or result
+
+let preview = [0];
+
+let buttonAc = document.getElementById('ac');
+
+let buttonN0 = document.getElementById('zero');
+let buttonN1 = document.getElementById('one');
+let buttonN2 = document.getElementById('two');
+let buttonN3 = document.getElementById('three');
+let buttonN4 = document.getElementById('four');
+let buttonN5 = document.getElementById('five');
+let buttonN6 = document.getElementById('six');
+let buttonN7 = document.getElementById('seven');
+let buttonN8 = document.getElementById('eight');
+let buttonN9 = document.getElementById('nine');
+
+// button AC erasing result
+
+buttonAc.onclick = function () {
+  buttonAc = 0;
+  preview = [0];
+  document.getElementById('result').innerHTML = buttonAc;
+}
+
+
+
+// concatenation of the buttons numbers without any commas
+
+buttonN0.onclick = function () {
+  buttonN0 = 0;
+  preview.push(buttonN0);
+  document.getElementById('result').innerHTML = preview.join('');
+}
+
+buttonN1.onclick = function () {
+  buttonN1 = 1;
+  preview.push(buttonN1);
+  document.getElementById('result').innerHTML = preview.join('');
+}
+
+buttonN2.onclick = function () {
+  buttonN2 = 2;
+  preview.push(buttonN2);
+  document.getElementById('result').innerHTML = preview.join('');
+}
+
+buttonN3.onclick = function () {
+  buttonN3 = 3;
+  preview.push(buttonN3);
+  document.getElementById('result').innerHTML = preview.join('');
+}
+
+buttonN4.onclick = function () {
+  buttonN4 = 4;
+  preview.push(buttonN4);
+  document.getElementById('result').innerHTML = preview.join('');
+}
+
+buttonN5.onclick = function () {
+  buttonN5 = 5;
+  preview.push(buttonN5);
+  document.getElementById('result').innerHTML = preview.join('');
+}
+
+buttonN6.onclick = function () {
+  buttonN6 = 6;
+  preview.push(buttonN6);
+  document.getElementById('result').innerHTML = preview.join('');
+}
+
+buttonN7.onclick = function () {
+  buttonN7 = 7;
+  preview.push(buttonN7);
+  document.getElementById('result').innerHTML = preview.join('');
+}
+
+buttonN8.onclick = function () {
+  buttonN8 = 8;
+  preview.push(buttonN8);
+  document.getElementById('result').innerHTML = preview.join('');
+}
+
+buttonN9.onclick = function () {
+  buttonN9 = 9;
+  preview.push(buttonN9);
+  document.getElementById('result').innerHTML = preview.join('');
+}
