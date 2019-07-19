@@ -35,9 +35,11 @@ let button2 = document.getElementsByClassName('button2');
 
 // show the numbers typed or result
 
-let preview = [0];
+let preview = [""];
+
 
 let buttonAc = document.getElementById('ac');
+
 
 let buttonN0 = document.getElementById('zero');
 let buttonN1 = document.getElementById('one');
@@ -54,8 +56,8 @@ let buttonN9 = document.getElementById('nine');
 
 buttonAc.onclick = function () {
   buttonAc.innerHTML = "AC";
-  preview = [0];
-  document.getElementById('result').innerHTML = preview;
+  preview = [""];
+  document.getElementById('result').innerHTML = 0;
 }
 
 // concatenation of the buttons numbers without any commas
