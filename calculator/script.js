@@ -50,73 +50,81 @@ let buttonN7 = document.getElementById('seven');
 let buttonN8 = document.getElementById('eight');
 let buttonN9 = document.getElementById('nine');
 
-// button AC erasing result
+// button AC erasing result and changing outlook to C when other buttons are clicked
 
 buttonAc.onclick = function () {
-  buttonAc = 0;
+  buttonAc.innerHTML = "AC";
   preview = [0];
-  document.getElementById('result').innerHTML = buttonAc;
+  document.getElementById('result').innerHTML = preview;
 }
-
-
 
 // concatenation of the buttons numbers without any commas
 
 buttonN0.onclick = function () {
+  document.getElementById('ac').innerHTML = "C";
   buttonN0 = 0;
   preview.push(buttonN0);
   document.getElementById('result').innerHTML = preview.join('');
 }
 
 buttonN1.onclick = function () {
+  document.getElementById('ac').innerHTML = "C";
   buttonN1 = 1;
   preview.push(buttonN1);
   document.getElementById('result').innerHTML = preview.join('');
 }
 
 buttonN2.onclick = function () {
+  document.getElementById('ac').innerHTML = "C";
   buttonN2 = 2;
   preview.push(buttonN2);
   document.getElementById('result').innerHTML = preview.join('');
 }
 
 buttonN3.onclick = function () {
+  document.getElementById('ac').innerHTML = "C";
   buttonN3 = 3;
   preview.push(buttonN3);
   document.getElementById('result').innerHTML = preview.join('');
 }
 
 buttonN4.onclick = function () {
+  document.getElementById('ac').innerHTML = "C";
   buttonN4 = 4;
   preview.push(buttonN4);
   document.getElementById('result').innerHTML = preview.join('');
 }
 
 buttonN5.onclick = function () {
+  document.getElementById('ac').innerHTML = "C";
   buttonN5 = 5;
   preview.push(buttonN5);
   document.getElementById('result').innerHTML = preview.join('');
 }
 
 buttonN6.onclick = function () {
+  document.getElementById('ac').innerHTML = "C";
   buttonN6 = 6;
   preview.push(buttonN6);
   document.getElementById('result').innerHTML = preview.join('');
 }
 
 buttonN7.onclick = function () {
+  document.getElementById('ac').innerHTML = "C";
   buttonN7 = 7;
   preview.push(buttonN7);
   document.getElementById('result').innerHTML = preview.join('');
 }
 
 buttonN8.onclick = function () {
+  document.getElementById('ac').innerHTML = "C";
   buttonN8 = 8;
   preview.push(buttonN8);
   document.getElementById('result').innerHTML = preview.join('');
 }
 
 buttonN9.onclick = function () {
+  document.getElementById('ac').innerHTML = "C";
   buttonN9 = 9;
   preview.push(buttonN9);
   document.getElementById('result').innerHTML = preview.join('');
