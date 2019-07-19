@@ -1,0 +1,74 @@
+h1 {
+  padding: 30px;
+}
+
+.result {
+  font-size: 80px;
+  border: 2px solid #000;
+  color: #f9f9f9;
+  padding-right: 20px;
+  background-color: #696969;
+}
+
+.row1 {
+  border: 2px solid #000;
+}
+
+.row2,
+.row3,
+.row4 {
+  border-top: none;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  border-left: 2px solid #000;
+}
+
+.button,
+.button2,
+.button-lg {
+  width: 25%;
+}
+
+p {
+  cursor: pointer;
+}
+
+#ac,
+#plus-minus,
+#percentage,
+#seven,
+#height,
+#nine,
+#six,
+#five,
+#four,
+#three,
+#two,
+#one,
+#zero,
+#coma {
+  font-size: 40px;
+  background-color: #808080;
+  color: #f9f9f9;
+  height: 140px;
+  padding-top: 50px;
+  margin-bottom: 0px;
+  border-right: 1px solid #696969;
+}
+
+#division,
+#multiplication,
+#soustraction,
+#addition,
+#equal {
+  font-size: 40px;
+  background-color: #ffca47;
+  color: #f9f9f9;
+  height: 140px;
+  margin-bottom: 0px;
+  padding-top: 50px;
+}
+
+#zero {
+  width: 50%;
+}
