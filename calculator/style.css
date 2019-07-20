@@ -35,6 +35,7 @@ p {
 
 #ac,
 #plus-minus,
+#plus-minus2,
 #percentage,
 #seven,
 #eight,
@@ -54,6 +55,10 @@ p {
   padding-top: 50px;
   margin-bottom: 0px;
   border-right: 1px solid #696969;
+}
+
+#plus-minus2 {
+  display: none;
 }
 
 #division,
