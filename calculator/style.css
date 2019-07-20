@@ -47,7 +47,17 @@ p {
 #two,
 #one,
 #zero,
-#coma {
+#coma,
+#seven2,
+#eight2,
+#nine2,
+#six2,
+#five2,
+#four2,
+#three2,
+#two2,
+#one2,
+#zero2 {
   font-size: 40px;
   background-color: #808080;
   color: #f9f9f9;
@@ -57,7 +67,34 @@ p {
   border-right: 1px solid #696969;
 }
 
-#plus-minus2 {
+#ac,
+#plus-minus,
+#percentage,
+#seven,
+#eight,
+#nine,
+#six,
+#five,
+#four,
+#three,
+#two,
+#one,
+#zero,
+#coma {
+  display: block;
+}
+
+#plus-minus2,
+#seven2,
+#eight2,
+#nine2,
+#six2,
+#five2,
+#four2,
+#three2,
+#two2,
+#one2,
+#zero2 {
   display: none;
 }
 
@@ -74,6 +111,7 @@ p {
   padding-top: 50px;
 }
 
-#zero {
+#zero,
+#zero2 {
   width: 50%;
 }
