@@ -1,5 +1,5 @@
 // change the color of the button when mousedown/up
-
+// for all standard buttons
 let button = document.getElementsByClassName('button');
   for(i = 0; i < button.length; i++){
     button[i].onmousedown = function() {
@@ -11,6 +11,7 @@ let button = document.getElementsByClassName('button');
     };
 }
 
+// for the large ones so 0
 let buttonLg = document.getElementsByClassName('button-lg');
   for(i = 0; i < buttonLg.length; i++){
     buttonLg[i].onmousedown = function() {
@@ -22,6 +23,8 @@ let buttonLg = document.getElementsByClassName('button-lg');
     };
 }
 
+
+// for the yellow ones
 let button2 = document.getElementsByClassName('button2');
   for(i = 0; i < button2.length; i++){
     button2[i].onmousedown = function() {
@@ -32,6 +35,10 @@ let button2 = document.getElementsByClassName('button2');
       this.style.backgroundColor = "#ffca47";
     };
 }
+
+// check if a button have been clicked
+
+
 
 // show the numbers typed or result
 
@@ -55,7 +62,7 @@ let buttonN6 = document.getElementById('six');
 let buttonN7 = document.getElementById('seven');
 let buttonN8 = document.getElementById('eight');
 let buttonN9 = document.getElementById('nine');
-// let allButtonsN = [buttonN0, buttonN1, buttonN2, buttonN3, buttonN4, buttonN5, buttonN6, buttonN7, buttonN8, buttonN9];
+let allButtonsN = [buttonN0, buttonN1, buttonN2, buttonN3, buttonN4, buttonN5, buttonN6, buttonN7, buttonN8, buttonN9];
 
 let buttonN02 = document.getElementById('zero2');
 let buttonN12 = document.getElementById('one2');
@@ -67,130 +74,97 @@ let buttonN62 = document.getElementById('six2');
 let buttonN72 = document.getElementById('seven2');
 let buttonN82 = document.getElementById('eight2');
 let buttonN92 = document.getElementById('nine2');
-// let allButtonsN2 = [buttonN02, buttonN12, buttonN22, buttonN32, buttonN42, buttonN52, buttonN62, buttonN72, buttonN82, buttonN92];
-
+let allButtonsN2 = [buttonN02, buttonN12, buttonN22, buttonN32, buttonN42, buttonN52, buttonN62, buttonN72, buttonN82, buttonN92];
 
 // button AC erasing result and changing outlook to C when other buttons are clicked
 // number 0 disapear when there is only zero and when a key is clicked
 
-buttonAc.onclick = function () {
-  buttonAc.innerHTML = "AC";
-  preview = [];
-  result.innerHTML = 0;
+function buttonResetHandler(button){
+  button.onclick = function (){
+    button.innerHTML = "AC";
+    preview = [];
+    result.innerHTML = 0;
+  }
 }
+
+buttonResetHandler(buttonAc);
 
 // concatenation of the buttons numbers without any commas
 
-buttonN0.onclick = function () {
-  document.getElementById('ac').innerHTML = "C";
-  buttonN0 = 0;
-  preview.push(buttonN0);
-  const a = preview.join('');
-  result.innerHTML = a;
+function buttonNumberHandler(button, value){
+  button.onclick = function(){
+    buttonAc.innerHTML = "C";
+    button = value;
+    preview.push(button);
+    const a = preview.join('');
+    result.innerHTML = a;
+  }
 }
 
-buttonN1.onclick = function () {
-  document.getElementById('ac').innerHTML = "C";
-  buttonN1 = 1;
-  preview.push(buttonN1);
-  const a = preview.join('');
-  result.innerHTML = a;
-}
+buttonNumberHandler(buttonN0, 0);
+buttonNumberHandler(buttonN1, 1);
+buttonNumberHandler(buttonN2, 2);
+buttonNumberHandler(buttonN3, 3);
+buttonNumberHandler(buttonN4, 4);
+buttonNumberHandler(buttonN5, 5);
+buttonNumberHandler(buttonN6, 6);
+buttonNumberHandler(buttonN7, 7);
+buttonNumberHandler(buttonN8, 8);
+buttonNumberHandler(buttonN9, 9);
 
-buttonN2.onclick = function () {
-  document.getElementById('ac').innerHTML = "C";
-  buttonN2 = 2;
-  preview.push(buttonN2);
-  const a = preview.join('');
-  result.innerHTML = a;
-}
-
-buttonN3.onclick = function () {
-  document.getElementById('ac').innerHTML = "C";
-  buttonN3 = 3;
-  preview.push(buttonN3);
-  const a = preview.join('');
-  result.innerHTML = a;
-}
-
-buttonN4.onclick = function () {
-  document.getElementById('ac').innerHTML = "C";
-  buttonN4 = 4;
-  preview.push(buttonN4);
-  const a = preview.join('');
-  result.innerHTML = a;
-}
-
-buttonN5.onclick = function () {
-  document.getElementById('ac').innerHTML = "C";
-  buttonN5 = 5;
-  preview.push(buttonN5);
-  const a = preview.join('');
-  result.innerHTML = a;
-}
-
-buttonN6.onclick = function () {
-  document.getElementById('ac').innerHTML = "C";
-  buttonN6 = 6;
-  preview.push(buttonN6);
-  const a = preview.join('');
-  result.innerHTML = a;
-}
-
-buttonN7.onclick = function () {
-  document.getElementById('ac').innerHTML = "C";
-  buttonN7 = 7;
-  preview.push(buttonN7);
-  const a = preview.join('');
-  result.innerHTML = a;
-}
-
-buttonN8.onclick = function () {
-  document.getElementById('ac').innerHTML = "C";
-  buttonN8 = 8;
-  preview.push(buttonN8);
-  const a = preview.join('');
-  result.innerHTML = a;
-}
-
-buttonN9.onclick = function () {
-  document.getElementById('ac').innerHTML = "C";
-  buttonN9 = 9;
-  preview.push(buttonN9);
-  const a = preview.join('');
-  result.innerHTML = a;
-}
 
 // positive to negative value and vice versa with the plus, minus key
 
-plusMinus.onclick = function(){
+function buttonPlusMinusHandler(button1, button2, button3, button4){
+  button1.onclick = function(){
 
-  let a = preview.join('');
-  let b = parseInt(a, 10);
-  let c = b * -1;
+    let a = preview.join('');
+    let b = parseInt(a, 10);
+    let c = b * -1;
 
-  result.innerHTML = c;
-  plusMinus.style.display = "none";
-  plusMinus2.style.display = "block";
-  
-  buttonN9.style.display = "none";
-  buttonN92.style.display = "block";
+    result.innerHTML = c;
+    button1.style.display = "none";
+    button2.style.display = "block";
+    for(i = 0; i < button3.length; i++){
+      button3[i].style.display = "none";
+    }
+
+    for(i = 0; i < button4.length; i++){
+      button4[i].style.display = "block";
+    }
+
+    if(result.innerHTML == c){
+      button2.onclick = function(){
+        result.innerHTML = b;
+        button2.style.display = "none";
+        button1.style.display = "block";
+        }
+      }
+    }
+  }
+
+buttonPlusMinusHandler(plusMinus, plusMinus2, allButtonsN, allButtonsN2);
+
+function buttonNumberResetPlusMinus(button, button2){
+  for(i = 0; i < button.length; i++){
+    button[i].onclick = function(){
+      preview = [];
+      result.innerHTML = 0;
+      for(i = 0; i < button2.length; i++){
+        button[i].style.display = "none";
+        button2[i].style.display = "block";
+      }
+    }
+  }
 }
 
-plusMinus2.onclick = function(){
+buttonNumberResetPlusMinus(allButtonsN2, allButtonsN);
 
-  let a = preview.join('');
-  let b = parseInt(a, 10);
-  let c = b * -1;
+// buttonNumberResetPlusMinus(allButtonsN2, allButtonsN);
 
-  result.innerHTML = b;
-  plusMinus2.style.display = "none";
-  plusMinus.style.display = "block";
-}
-
-buttonN92.onclick = function(){
-  result.innerHTML = 0;
-  preview = [];
-  buttonN92.style.display = "none";
-  buttonN9.style.display = "block";
-}
+// buttonN92.onclick = function(){
+//   result.innerHTML = 0;
+//   preview = [];
+//   buttonN9.style.display = "block";
+//   buttonN92.style.display = "none";
+// }
