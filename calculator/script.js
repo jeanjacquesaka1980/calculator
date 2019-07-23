@@ -45,12 +45,12 @@ let button2 = document.getElementsByClassName('button2');
 let result = document.getElementById('result');
 
 let preview = [];
-let preview2 = [];
 
 
 let buttonAc = document.getElementById('ac');
 let plusMinus = document.getElementById('plus-minus');
 let plusMinus2 = document.getElementById('plus-minus2');
+let percentage = document.getElementById('percentage');
 
 let buttonN0 = document.getElementById('zero');
 let buttonN1 = document.getElementById('one');
@@ -135,36 +135,43 @@ function buttonPlusMinusHandler(button1, button2, button3, button4){
 
     if(result.innerHTML == c){
       button2.onclick = function(){
-        result.innerHTML = b;
+        result.innerHTML = c * -1;
         button2.style.display = "none";
         button1.style.display = "block";
         }
       }
+
+      function buttonNumberResetPlusMinus(key1, key2){
+        for(i = 0; i < key1.length; i++){
+          key1[i].onclick = function(){
+            preview = [];
+            b = preview;
+            c = b;
+            result.innerHTML = 0;
+            button2.style.display = "none";
+            button1.style.display = "block";
+
+            for(i = 0; i < key2.length; i++){
+              key1[i].style.display = "none";
+              key2[i].style.display = "block";
+            }
+          }
+        }
+      }
+      buttonNumberResetPlusMinus(allButtonsN2, allButtonsN);
     }
   }
 
 buttonPlusMinusHandler(plusMinus, plusMinus2, allButtonsN, allButtonsN2);
 
-function buttonNumberResetPlusMinus(button, button2){
-  for(i = 0; i < button.length; i++){
-    button[i].onclick = function(){
-      preview = [];
-      result.innerHTML = 0;
-      for(i = 0; i < button2.length; i++){
-        button[i].style.display = "none";
-        button2[i].style.display = "block";
-      }
-    }
+function percentageOfNumber(button){
+  button.onclick = function(){
+    const a = preview.join('');
+    const b = a / 100;
+    result.innerHTML = b;
+    preview = [];
   }
+  
 }
 
-buttonNumberResetPlusMinus(allButtonsN2, allButtonsN);
-
-// buttonNumberResetPlusMinus(allButtonsN2, allButtonsN);
-
-// buttonN92.onclick = function(){
-//   result.innerHTML = 0;
-//   preview = [];
-//   buttonN9.style.display = "block";
-//   buttonN92.style.display = "none";
-// }
+percentageOfNumber(percentage);
