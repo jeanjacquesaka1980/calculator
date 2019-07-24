@@ -91,93 +91,66 @@ buttonNumberHandler(buttonN7, 7);
 buttonNumberHandler(buttonN8, 8);
 buttonNumberHandler(buttonN9, 9);
 
-// button AC erasing result and changing outlook to C when other buttons are clicked
-// number 0 disapear when there is only zero and when a key is clicked
-function buttonResetHandler(bt1, bt2, bt3, bt4, bt5, var1, var2, var3, var4){
-  bt1.onclick = function (){
-    bt1.innerHTML = "AC";
-    preview = [];
-    var1 = preview;
-    var2 = var1;
-    var3 = var2;
-    var4 = var3;
-    result.innerHTML = 0;
-    // console.log(var1);
-    // console.log(var2);
-    // console.log(var3);
-    // console.log(var4);
-    // console.log(preview);
+function acOnClick(bt1){
+  bt1.innerHTML = "AC";
+  preview = [];
+  var1 = preview;
+  var2 = var1;
+  var3 = var2;
+  var4 = var3;
+  result.innerHTML = 0;
+}
 
-    bt2.style.display = "none";
-    bt3.style.display = "block";
-    for(i = 0; i < bt4.length; i++){
-      bt4[i].style.display = "none";
-      bt5[i].style.display = "block";
-    }
+function plusMinusOnClick(bt1, bt2){
+  bt1.style.display = "none";
+  bt2.style.display = "block";
+}
+
+function allButtonsNonClick(bt1, bt2){
+  for(i = 0; i < bt1.length; i++){
+    bt1[i].style.display = 'none';
+    bt2[i].style.display = 'block';
   }
 }
 
-buttonResetHandler(buttonAc, plusMinus2, plusMinus, allButtonsN2, allButtonsN, a, b, c, d);
+function buttonResetHandler(bt1, bt2, bt3, var1, var2, var3, var4){
+  bt1.onclick = function (){
+    acOnClick(buttonAc);
+    plusMinusOnClick(plusMinus2, plusMinus);
+    allButtonsNonClick(allButtonsN2, allButtonsN);
+  }
+}
 
-// if the button plus minus have been triggered then this function, by clicking on numbers will erase the screen
-function allButtonsNResetHandler(bt1, bt2, bt3, bt4, bt5, var1, var2, var3, var4){
-    for(i = 0; i < bt1.length; i++){
-      bt1[i].style.display = 'none';
-      bt2[i].style.display = 'block';
-    }
+buttonResetHandler(buttonAc, allButtonsN2, allButtonsN, a, b, c, d);
+
+function allButtonsNResetHandler(bt1, bt2){
+    allButtonsNonClick(allButtonsN, allButtonsN2);
     for(i = 0; i < bt2.length; i++){
-
       bt2[i].onclick = function(){
-        bt3.innerHTML = "AC";
-        bt4.style.display = "none";
-        bt5.style.display = "block";
-
-        preview = [];
-        var1 = preview;
-        var2 = var1;
-        var3 = var2;
-        var4 = var3;
-        result.innerHTML = 0;
-
-        for(i = 0; i < bt1.length; i++){
-          bt2[i].style.display = 'none';
-          bt1[i].style.display = 'block';
-        }
+        plusMinusOnClick(plusMinus2, plusMinus);
+        acOnClick(buttonAc);
+        allButtonsNonClick(allButtonsN2, allButtonsN);
       }
     }
 }
 
-// if the button plus minus is triggered, this function will show the result. it toggling a positive negative value
 function resultPlusMinus(bt1, bt2, var1, var2, var3, var4){
   bt1.onclick = function(){
-    // on click, it makes the calculation
     var1 = preview.join('');
     var2 = parseInt(var1, 10);
     var3 = var2 * -1;
     var4 = var3;
-    // showing the result
     result.innerHTML = var3;
-
-    bt1.style.display = "none";
-    bt2.style.display = "block";
+    plusMinusOnClick(plusMinus, plusMinus2);
 
     if(result.innerHTML == var3){
       var4 = var3 * -1;
     }
-
     bt2.onclick = function(){
       result.innerHTML = var4;
-      bt2.style.display = "none";
-      bt1.style.display = "block";
+      plusMinusOnClick(plusMinus2, plusMinus);
     }
-    allButtonsNResetHandler(allButtonsN, allButtonsN2, buttonAc, plusMinus2, plusMinus, a, b, c, d);
-    //cleaning everything
-    // preview = [];
-    // a = preview;
-    // b = a;
-    // c = b;
-    // d = c;
-    // showing the second button plus minus
+    allButtonsNResetHandler(allButtonsN, allButtonsN2);s
   }
 }
 
