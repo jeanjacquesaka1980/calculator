@@ -68,6 +68,13 @@ let buttonN82 = document.getElementById('eight2');
 let buttonN92 = document.getElementById('nine2');
 let allButtonsN2 = [buttonN02, buttonN12, buttonN22, buttonN32, buttonN42, buttonN52, buttonN62, buttonN72, buttonN82, buttonN92];
 
+// function getNum(val) {
+//    if (isNaN(val)) {
+//      return 0;
+//    }
+//    return val;
+// }
+
 // concatenation of the buttons numbers without any commas
 
 function buttonNumberHandler(button, value){
@@ -135,7 +142,17 @@ function allButtonsNResetHandler(bt1, bt2){
 }
 
 function resultPlusMinus(bt1, bt2, var1, var2, var3, var4){
+
   bt1.onclick = function(){
+    if(result.innerHTML == 0){
+      preview.push(0);
+      var1 = preview.join('');
+      var2 = parseInt(var1, 10);
+      result.innerHTML = var2;
+      plusMinusOnClick(plusMinus, plusMinus2);
+    }
+
+
     var1 = preview.join('');
     var2 = parseInt(var1, 10);
     var3 = var2 * -1;
@@ -150,8 +167,28 @@ function resultPlusMinus(bt1, bt2, var1, var2, var3, var4){
       result.innerHTML = var4;
       plusMinusOnClick(plusMinus2, plusMinus);
     }
-    allButtonsNResetHandler(allButtonsN, allButtonsN2);s
+    allButtonsNResetHandler(allButtonsN, allButtonsN2);
   }
 }
 
 resultPlusMinus(plusMinus, plusMinus2, a, b, c, d);
+
+
+// TO CHECK
+
+// function ifResultIsZeroOnPlusMinusClick(bt1){
+//   if(isNaN(result)){
+//     bt1.onclick = function(){
+//       return result;
+//       // preview = [];
+//       // var1 = preview;
+//       // var2 = var1;
+//       // var3 = var2;
+//       // var4 = var3;
+//       // result.innerHTML = 0;
+//     }
+//     // plusMinusOnClick(plusMinus, plusMinus2);
+//   }
+// }
+//
+// ifResultIsZeroOnPlusMinusClick(plusMinus);
