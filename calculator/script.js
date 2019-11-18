@@ -37,12 +37,14 @@ let a;
 let b;
 let c;
 let d;
+let e;
 
 
 let buttonAc = document.getElementById('ac');
 let plusMinus = document.getElementById('plus-minus');
 let plusMinus2 = document.getElementById('plus-minus2');
 let percentage = document.getElementById('percentage');
+let percentage2 = document.getElementById('percentage2');
 
 let buttonN0 = document.getElementById('zero');
 let buttonN1 = document.getElementById('one');
@@ -192,3 +194,57 @@ resultPlusMinus(plusMinus, plusMinus2, a, b, c, d);
 // }
 //
 // ifResultIsZeroOnPlusMinusClick(plusMinus);
+
+function resetResult(var1, var2, var3, var4){
+  preview = [];
+  var1 = preview;
+  var2 = var1;
+  var3 = var2;
+  var4 = var3;
+  preview = var4;
+}
+
+function percentageOnClick(bt1, bt2){
+  bt1.style.display = "none";
+  bt2.style.display = "block";
+}
+
+
+function resultPercentage(bt1, bt2, var1, var2, var3, var4){
+
+  bt1.onclick = function (){
+    if(result.innerHTML == 0){
+      preview.push(0);
+      var1 = preview.join('');
+      var2 = parseInt(var1, 10);
+      result.innerHTML = var2;
+      percentageOnClick(percentage2, percentage);
+    }
+
+    var1 = preview.join('');
+    var2 = parseInt(var1, 10);
+    var3 = var2 * 0.01;
+    var4 = Math.floor(var3 * 100) / 100;
+    result.innerHTML = var4;
+    percentageOnClick(percentage, percentage2);
+
+    if(result.innerHTML == var4){
+      bt1.onclick = function(){
+        var4 = var4 * 0.01;
+        result.innerHTML = var4;
+        percentageOnClick(percentage, percentage2);
+        // allButtonsNResetHandler(allButtonsN, allButtonsN2);
+        // resetResult(a, b, c, d);
+      }
+
+      bt2.onclick = function(){
+        var4 = var4 * 0.01;
+        result.innerHTML = var4;
+        percentageOnClick(percentage2, percentage);
+        // allButtonsNResetHandler(allButtonsN2, allButtonsN);
+        // resetResult(a, b, c, d);
+      }
+    }
+  } 
+}
+resultPercentage(percentage, percentage2, a, b, c, d);
