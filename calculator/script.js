@@ -195,14 +195,16 @@ resultPlusMinus(plusMinus, plusMinus2, a, b, c, d);
 //
 // ifResultIsZeroOnPlusMinusClick(plusMinus);
 
-function resetResult(var1, var2, var3, var4){
-  preview = [];
-  var1 = preview;
-  var2 = var1;
-  var3 = var2;
-  var4 = var3;
-  preview = var4;
-}
+// function resetResult(var1, var2, var3, var4){
+//   preview = [];
+//   var1 = preview;
+//   var2 = var1;
+//   var3 = var2;
+//   var4 = var3;
+//   preview = var4;
+//   result.innerHTML = 0;
+//   buttonResetHandler(buttonAc, allButtonsN2, allButtonsN, a, b, c, d);
+// }
 
 function percentageOnClick(bt1, bt2){
   bt1.style.display = "none";
@@ -213,12 +215,14 @@ function percentageOnClick(bt1, bt2){
 function resultPercentage(bt1, bt2, var1, var2, var3, var4){
 
   bt1.onclick = function (){
+    // to make the result stay at zero when you click on % and result is already zero. otho
+    // it's a NaN appearing
     if(result.innerHTML == 0){
       preview.push(0);
       var1 = preview.join('');
       var2 = parseInt(var1, 10);
       result.innerHTML = var2;
-      percentageOnClick(percentage2, percentage);
+      percentageOnClick(percentage, percentage2);
     }
 
     var1 = preview.join('');
@@ -233,18 +237,15 @@ function resultPercentage(bt1, bt2, var1, var2, var3, var4){
         var4 = var4 * 0.01;
         result.innerHTML = var4;
         percentageOnClick(percentage, percentage2);
-        // allButtonsNResetHandler(allButtonsN, allButtonsN2);
-        // resetResult(a, b, c, d);
       }
 
       bt2.onclick = function(){
         var4 = var4 * 0.01;
         result.innerHTML = var4;
         percentageOnClick(percentage2, percentage);
-        // allButtonsNResetHandler(allButtonsN2, allButtonsN);
-        // resetResult(a, b, c, d);
       }
     }
+    acOnClick(buttonAc);
   } 
 }
 resultPercentage(percentage, percentage2, a, b, c, d);
